@@ -19,6 +19,9 @@ hellfred.author = "Brad Blundell"
 hellfred.homepage = "https://github.com/braddevelop/hellfred"
 hellfred.license = "MIT - https://opensource.org/licenses/MIT"
 
+_G.HELLFIRE_MODES = require('hellfred.hellfire.hellfire-modes')
+_G.HELLFIRE_MODES_EXTENDED = require('hellfred.extend.basics.hellfire-modes-extended')
+
 --[[ ______________________________________________________________________
 
     Hellfire
@@ -30,6 +33,9 @@ hellfire.init({{'shift','cmd'},'h'})
 
 -- Load subscribers from packs
 hellfire.addSubscribers(require('hellfred.quick-start').hellfirePack)
+hellfire.addSubscribers(require('hellfred.extend.basics.hellfirepack-applications'))
+hellfire.addSubscribers(require('hellfred.extend.basics.hellfirepack-common-links'))
+hellfire.addSubscribers(require('hellfred.extend.basics.hellfire-mode-triggers'))
 
 --[[ ______________________________________________________________________
 
@@ -42,6 +48,7 @@ hellprompt.init({{'shift','ctrl'},'h'})
 
 -- Load subscribers from packs
 hellprompt.addSubscribers(require('hellfred.quick-start').hellpromptPack)
+hellprompt.addSubscribers(require('hellfred.extend.basics.hellpromptpack-commands'))
 
 --[[ ______________________________________________________________________
 
@@ -54,6 +61,7 @@ hellfuzz.init({{'shift','alt'},'h'})
 
 -- Load subscribers from packs
 hellfuzz.addSubscribers(require('hellfred.quick-start').hellfuzzPack)
+hellfuzz.addSubscribers(require('hellfred.extend.basics.hellfuzzpack-apps-and-links'))
 
 --------------------------------------------------------------------------
 -- Public API
