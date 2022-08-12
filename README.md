@@ -21,7 +21,7 @@ Hellfred is a collection of 3 mini-apps built on top of Hammerspoon so you can a
 
 Each app is a different **style of interface** that map `triggers` to the `behaviours or actions` they should perform.
 
-![hellfuzz](resources/hellfuzz.png)
+![hellfuzz](resources/Hellfuzz.png)
 *Hellfuzz. A fuzzy search, choice-to-behaviour mapper.*
 
 ![hellfire](resources/Hellfire.png)
