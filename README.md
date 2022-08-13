@@ -15,7 +15,7 @@
 - [Tutorial: A basic setup](#tutorial-a-basic-setup)
 
 ## What the hell is Hellfred?
-Hellfred is a collection of 3 mini-apps built on top of Hammerspoon so you can automate tasks, boost productivity and eliminate time-suck.
+Hellfred is a collection of 3 mini-apps built on top of Hammerspoon so you can automate tasks, boost productivity and eliminate time-suck by programming shortcuts into your daily workflows.
 
 > It's a way to map repetitive time consuming tasks to key sequences, commands or searchable texts.
 
@@ -131,12 +131,24 @@ Out-the-box the three Hellfred apps are ready to use and are pre-configured with
 What **Hellfire**, **Hellfuzz** and **Hellprompt** achieve is map a **trigger** or **input** to an **action** or **behaviour**, `if-this-then-that`, and whilst we have just demonstrated using each app to achieve the same outcome, you will find each app more suited to certain use cases than others.
 
 ## Tutorial: A basic setup
-Alas, it is still warming up. Watch this space though!
-In the meantime, checkout the code for the basic setup:
+> For a walkthrough of the basics, see [this article](https://hackernoon.com/hellfred-or-how-i-learned-to-automate-macos-and-become-hellishly-productive) on Hackernoon.
+
+[![top-story-on-hackernoon](resources/hackernoon-article.png)](https://hackernoon.com/hellfred-or-how-i-learned-to-automate-macos-and-become-hellishly-productive)
+
+
+The final code can be found on the `basics` branch:
+
 ```bash
 git checkout basics
 ```
 
+
+## Extensions: Add fuel to the fire.
+Look out for upcoming Hellfred experiments and extensions on the repo by checking out the `extend` branch.
+
+```bash
+git checkout extend
+```
 ## Info
 
 | Compatibility  | Version |
