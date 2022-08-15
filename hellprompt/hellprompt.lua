@@ -29,6 +29,26 @@ local _internal = {
 }
 
 ---
+--- Enter Hellprompt
+---
+function _internal.enter()
+    _internal.clearCommandBuffer()
+    _internal.keyCaster.setText(_internal.promptPrefix.._internal.cursor)
+    _internal.keylogger:start()
+    _internal.keyCaster.show()
+end
+
+---
+--- Exit Hellprompt
+---
+function _internal.exit()
+    _internal.keylogger:stop()
+    _internal.keyCaster.hide()
+    _internal.keyCaster.reset()
+    _internal.modal:exit()
+end
+
+---
 --- Notify subscribers
 --- @param message string
 ---
@@ -62,7 +82,7 @@ function _internal.onKeyLoggerEvent(eventTapEvent)
 
     -- Check if we should submit the command and exit Hellprompt
     if key == 'return' or key == 'padenter' then
-        module.exit()
+        _internal.exit()
         _internal.notify(_internal.commandBuffer)
         return
     end
@@ -140,7 +160,6 @@ end
 ---
 --- Initialise Hellprompt
 --- @param keySpec table
---- @return table The Hellprompt object
 --- @usage
 ---     hellprompt.init({{'cmd'},'f18'})
 ---
@@ -148,31 +167,10 @@ function module.init(keySpec)
     _internal.modal = hs.hotkey.modal.new(keySpec[1], keySpec[2])
 
     function _internal.modal:entered()
-        module.enter()
+        _internal.enter()
     end
-    _internal.modal:bind('', 'escape', function() module.exit() end)
+    _internal.modal:bind('', 'escape', function() _internal.exit() end)
     _internal.keylogger.addSubscriber(_internal.onKeyLoggerEvent)
-    return module
-end
-
----
---- Enter Hellprompt
----
-function module.enter()
-    _internal.clearCommandBuffer()
-    _internal.keyCaster.setText(_internal.promptPrefix.._internal.cursor)
-    _internal.keylogger:start()
-    _internal.keyCaster.show()
-end
-
----
---- Exit Hellprompt
----
-function module.exit()
-    _internal.keylogger:stop()
-    _internal.keyCaster.hide()
-    _internal.keyCaster.reset()
-    _internal.modal:exit()
 end
 
 ---

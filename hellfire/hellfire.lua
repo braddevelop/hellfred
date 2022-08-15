@@ -31,6 +31,23 @@ local _internal = {
 }
 
 ---
+--- Enter Hellfire
+---
+function _internal.enter()
+    _internal.contextManager.start()
+end
+
+---
+--- Exit Hellfire
+---
+function _internal.exit()
+    _internal.contextManager.stop()
+    if _internal.modal then
+        _internal.modal:exit()
+    end
+end
+
+---
 --- Notify subscribers
 --- @param context table
 ---
@@ -52,9 +69,9 @@ function module.init(keySpec)
     if keySpec then
         _internal.modal = hs.hotkey.modal.new(keySpec[1], keySpec[2])
         function _internal.modal:entered()
-            module.enter()
+            _internal.enter()
         end
-        _internal.modal:bind('', 'escape', function() module.exit() end)
+        _internal.modal:bind('', 'escape', function() _internal.exit() end)
     end
     _internal.contextManager.addSubscriber(_internal.notify)
     module.setMode(hellfireModes.DEFAULT)
@@ -97,7 +114,7 @@ function module.addSubscriber(subscriber)
             local cbResponse = callback(context) or {exitAfterCallback = true}
 
             if cbResponse['exitAfterCallback'] ~= false then
-                module.exit()
+                _internal.exit()
             end
         end
     end
@@ -121,23 +138,6 @@ end
 ---
 function module.setMode(mode)
     _internal.contextManager.setMode(mode)
-end
-
----
---- Enter Hellfire
----
-function module.enter()
-    _internal.contextManager.start()
-end
-
----
---- Exit Hellfire
----
-function module.exit()
-    _internal.contextManager.stop()
-    if _internal.modal then
-        _internal.modal:exit()
-    end
 end
 
 return module
