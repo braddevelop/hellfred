@@ -7,7 +7,7 @@
 local _factory = function(trigger, app)
     return {
         trigger = trigger,
-        fireIfModeIs = nil,
+        fireIfModeIs = _G.HELLFIRE_MODES.DEFAULT,
         callback = function() hs.application.launchOrFocus(app) end
     }
 end
