@@ -79,7 +79,8 @@ end
 
 ---
 --- Add a subscriber to internal subscriber list
---- @param subscriber any A subscriber to be notified of Hellfire events
+---
+--- @param subscriber any A KeysHandler object
 ---
 function module.addSubscriber(subscriber)
     -- Always set a mode to a default if not configured
@@ -124,7 +125,8 @@ end
 
 ---
 --- Add multiple subscribers to internal subscriber list
---- @param subscribers table
+---
+--- @param subscribers table An array of KeysHandler objects
 ---
 function module.addSubscribers(subscribers)
     hs.fnutils.each(subscribers, function(subscriber)

@@ -50,6 +50,7 @@ end
 
 ---
 --- Notify subscribers
+---
 --- @param message string
 ---
 function _internal.notify(message)
@@ -160,8 +161,6 @@ end
 ---
 --- Initialise Hellprompt
 --- @param keySpec table
---- @usage
----     hellprompt.init({{'cmd'},'f18'})
 ---
 function module.init(keySpec)
     _internal.modal = hs.hotkey.modal.new(keySpec[1], keySpec[2])
@@ -176,12 +175,16 @@ end
 ---
 --- Add a subscriber to internal subscriber list
 ---
+--- @param subscriber any A CommandHandler object
+---
 function module.addSubscriber(subscriber)
     table.insert(_internal.subscribers, subscriber)
 end
 
 ---
 --- Add multiple subscribers to internal subscriber list
+---
+--- @param subscribers any An array of CommandHandler objects
 ---
 function module.addSubscribers(subscribers)
     hs.fnutils.each(subscribers, function(sub)
