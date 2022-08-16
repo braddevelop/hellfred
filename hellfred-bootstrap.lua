@@ -14,7 +14,7 @@ hellfred.__index = hellfred
 
 -- Metadata
 hellfred.name = "Hellfred"
-hellfred.version = "0.1.0"
+hellfred.version = "1.0.0"
 hellfred.author = "Brad Blundell"
 hellfred.homepage = "https://github.com/braddevelop/hellfred"
 hellfred.license = "MIT - https://opensource.org/licenses/MIT"
